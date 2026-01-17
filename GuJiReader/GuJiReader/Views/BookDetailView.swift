@@ -267,7 +267,7 @@ struct BookDetailView: View {
         .navigationBarHidden(true)
         .background(
             NavigationLink(
-                destination: ReadingView(book: book),
+                destination: PaginatedReadingView(book: book),
                 isActive: $isReading,
                 label: { EmptyView() }
             )
