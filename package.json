@@ -1,0 +1,17 @@
+{
+  "name": "gujireader",
+  "version": "1.0.0",
+  "description": "一款具有宣纸质感的iOS古籍阅读应用，支持传统的从上往下竖排阅读方式。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "socket.io": "^4.8.3",
+    "ws": "^8.19.0"
+  }
+}

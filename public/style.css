@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow: hidden;
+    background: #f5f5f5;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-right: 20px;
+    border-right: 1px solid #e0e0e0;
+}
+
+.tool-group:last-child {
+    border-right: none;
+}
+
+.tool-btn {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #d0d0d0;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.tool-btn:hover {
+    background: #f5f5f5;
+    border-color: #999;
+}
+
+.tool-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+.tool-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.color-picker, .size-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.color-picker label, .size-picker label {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+#colorPicker {
+    width: 50px;
+    height: 35px;
+    border: 1px solid #d0d0d0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#sizePicker {
+    width: 100px;
+}
+
+#sizeValue {
+    font-size: 14px;
+    color: #666;
+    min-width: 30px;
+}
+
+.canvas-container {
+    flex: 1;
+    position: relative;
+    background: white;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+#whiteboard {
+    width: 100%;
+    height: 100%;
+    cursor: crosshair;
+}
+
+.users-panel {
+    position: fixed;
+    right: 20px;
+    top: 80px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 200px;
+    z-index: 1000;
+}
+
+.users-panel h3 {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+#usersList {
+    list-style: none;
+}
+
+#usersList li {
+    padding: 8px 12px;
+    background: #f5f5f5;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#usersList li:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #28a745;
+}
+
+.user-cursor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1000;
+    transition: all 0.1s ease-out;
+}
+
+.cursor-pointer {
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 12px solid;
+    transform: rotate(-45deg);
+}
+
+.cursor-label {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    padding: 3px 8px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 20px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    font-size: 13px;
+    color: #666;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 6px;
+    background: #ffc107;
+    animation: pulse 2s infinite;
+}
+
+.status-dot.connected {
+    background: #28a745;
+    animation: none;
+}
+
+.status-dot.disconnected {
+    background: #dc3545;
+    animation: none;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 768px) {
+    .toolbar {
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .tool-group {
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .users-panel {
+        display: none;
+    }
+
+    .canvas-container {
+        margin: 10px;
+    }
+}

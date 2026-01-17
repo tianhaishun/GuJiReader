@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Edit",
+      "Bash(npm:*)",
+      "Bash(find:*)",
+      "mcp__acp__Bash"
+    ]
+  }
+}
